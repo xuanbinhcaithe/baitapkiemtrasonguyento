@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kiểm tra số nguyên tố</title>
+</head>
+<body>
+    <p>
+        <span>Chọn số :</span>
+        <input type="number" oninput="check()" id="input">
+        <p><span id="output"></span></p>
+    </p>
+
+    <script>
+
+        function check() {
+           let number =parseInt(document.getElementById("input").value);
+           let result =true;
+               if (number<2) {
+               result=false;
+                } else if (number==2) {
+                   result=true;
+               } else if (number%2==0) {
+                   result=false;
+               }else {
+                   for (let i = 3; i < number - 1; i += 2) {
+                       if (number % i == 0) {
+                           return false;
+                           break;
+                       }
+                   }
+               }
+               if (result==true) {
+                   document.getElementById("output").innerHTML=" đây là số  nguyên tố";
+               } else {
+                   document.getElementById("output").innerHTML="đây không phải số nguyên tố";
+               }
+        }
+
+
+    </script>
+</body>
+</html>
